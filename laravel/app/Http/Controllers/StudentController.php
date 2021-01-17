@@ -29,4 +29,22 @@ class StudentController extends Controller
 
     	return redirect()->route('students.index')->with('success', 'Profile Created Successflly!');
     }
+
+    public function edit(Student $student){
+ 		return view('students.edit', compact('student'));
+ 	}
+
+
+ 	public function update(Request $request, Student $student){
+ 		$request->validate([
+    		'name'=>'required',
+    		'student_id' => 'required',
+    		'batch'=>'required'
+    	]);
+
+ 		
+    	$student->update($request->all());
+
+    	return redirect()->route('students.index')->with('success', 'Profile Updated Successflly!');
+ 	}
 }

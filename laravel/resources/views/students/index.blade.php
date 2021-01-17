@@ -26,13 +26,9 @@
 			<td>{{$student->name}} </td>
 			<td>{{$student->batch}} </td>
 			<td>
-				<form action="{{ route('students.destroy', $student->id)}}" method="POST">
+				 
 					<a href="{{ route('students.edit', $student->id)}}" > Edit </a>					
-					@csrf
-                    @method('DELETE') 
-
-					<button type="submit" > Delete </button>
-				</form>
+				 
 			</td>
 		</tr>
 		@endforeach 
